@@ -71,11 +71,7 @@
     const msg   = document.getElementById('msg');
     const q2    = document.getElementById('q2');
 
-    // If already solved earlier, auto-show Question 2 on load
-    if (localStorage.getItem('q1_passed') === 'true') {
-      show(q2, true);
-      msg.textContent = 'Already unlocked!';
-      msg.className = 'ok';
+   
       // Optional: scroll into view
       // q2.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
