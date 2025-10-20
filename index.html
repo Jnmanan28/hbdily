@@ -68,19 +68,12 @@
     const msg   = document.getElementById('msg');      // status message
     const next  = document.getElementById('next');     // next link
 
-    // Keep unlocked across reloads
-    if (localStorage.getItem('q1_passed') === 'true') {
-      show(next, true);
-      msg.textContent = 'Already unlocked!';
-      msg.className = 'ok';
-    }
-
     btn.addEventListener('click', () => {
       const ok = input.value.trim().toLowerCase() === '900 m';
       if (ok) {
         localStorage.setItem('q1_passed', 'true');
         show(next, true);
-        msg.textContent = 'Correct! 900 m was also the walking distance between our houses in delhi! :)';
+        msg.textContent = 'Correct! 900 m is actually the walking distance between our houses in delhi! Probably the shortest distance to have existed between all this long distance:)';
         msg.className = 'ok';
       } else {
         msg.textContent = 'Try again (exactly: 900 m).';
