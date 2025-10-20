@@ -13,3 +13,91 @@
     <!-- PLACEHOLDER_IFRAME -->
   </body>
 </html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Question 1 — Sum Without Smallest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    .hidden { display: none; }
+    input[type="text"] { padding: .6rem; width: 70%; max-width: 420px; }
+    button { padding: .6rem 1rem; }
+    .ok { color: #0a7a28; }
+    .err { color: #b00020; }
+    code, pre { background: #f7f7f8; padding: .2rem .4rem; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Question 1 — Sum Without the Smallest</h1>
+
+  <div class="card">
+    <p>Your task is to read a list of distances in meters, ignore exactly the smallest value, and output the sum of the remaining values with a space and the letter m appended (for meters) [Input and example are provided below].</p>
+
+    <h3>Input</h3>
+    <p>First line: an integer N (2 ≤ N ≤ 10).<br>Second line: N positive integers (each 1–1000), representing distances in meters.</p>
+
+    <h3>Example input (copy/paste all lines)</h3>
+    <pre>4
+100 200 300 400</pre>
+
+    <h3>Expected output for the example</h3>
+    <pre>900 m</pre>
+
+    <h3>Notes</h3>
+    <ul>
+      <li>Sum every value except the single smallest one, then print the number followed by a space and m.</li>
+      <li>No extra punctuation or text is allowed; type exactly: 900 m.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Enter answer to unlock next question</h2>
+    <p>Type the exact output (include the space):</p>
+    <input id="answer" type="text" placeholder="e.g., 900 m">
+    <button id="check">Verify</button>
+    <div id="msg" aria-live="polite"></div>
+
+    <div id="next" class="hidden" style="margin-top:1rem">
+      <a href="next.html">Next Question →</a>
+    </div>
+  </div>
+
+  <script>
+    // Helper to show/hide the next link
+    const show = (el, visible) => el.classList.toggle('hidden', !visible);
+
+    const input = document.getElementById('answer');     // Access input box
+    const btn   = document.getElementById('check');      // Access button
+    const msg   = document.getElementById('msg');        // Status message
+    const next  = document.getElementById('next');       // Next question link
+
+    // Keep it unlocked across reloads
+    if (localStorage.getItem('q1_passed') === 'true') {
+      show(next, true);
+      msg.textContent = 'Already unlocked!';
+      msg.className = 'ok';
+    }
+
+    btn.addEventListener('click', () => {
+      const ok = input.value.trim().toLowerCase() === '900 m';
+      if (ok) {
+        localStorage.setItem('q1_passed', 'true');       // Remember success
+        show(next, true);                                 // Reveal link
+        msg.textContent = 'Correct! Link unlocked.';      // Friendly status
+        msg.className = 'ok';
+      } else {
+        msg.textContent = 'Try again (exactly: 900 m).';
+        msg.className = 'err';
+      }
+    });
+  </script>
+</body>
+</html>
+<script>
+  if (localStorage.getItem('q1_passed') !== 'true') {
+    window.location.href = './';
+  }
+</script>
