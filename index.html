@@ -50,7 +50,7 @@
   <div class="card" id="unlock">
     <h2>Enter answer to reveal Question 2</h2>
     <p>Type the exact output for the example above (include the space):</p>
-    <input id="answer" type="text" placeholder="e.g.,543 m">
+    <input id="answer" type="text" placeholder="e.g., 900 m">
     <button id="check">Verify</button>
     <div id="msg" aria-live="polite"></div>
   </div>
@@ -71,7 +71,11 @@
     const msg   = document.getElementById('msg');
     const q2    = document.getElementById('q2');
 
-   
+    // If already solved earlier, auto-show Question 2 on load
+    if (localStorage.getItem('q1_passed') === 'true') {
+      show(q2, true);
+      msg.textContent = 'Already unlocked!';
+      msg.className = 'ok';
       // Optional: scroll into view
       // q2.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -82,7 +86,7 @@
       if (ok) {
         localStorage.setItem('q1_passed', 'true');  // remember success
         show(q2, true);                              // reveal Question 2 now
-        msg.textContent = 'Correct! 900 m was also the walking distance between your house and mine in Delhi. Probably the shortest distance between the ever lasting long distance! Anyway, Question 2 is now visible.';
+        msg.textContent = 'Correct! Question 2 is now visible.';
         msg.className = 'ok';
         // Optional: q2.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
@@ -93,4 +97,5 @@
   </script>
 </body>
 </html>
+
 
