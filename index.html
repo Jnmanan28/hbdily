@@ -47,34 +47,48 @@
     <p>Print the total as a number, then a space, then the character m.</p>
   </div>
 
-  <div class="card">
-    <h2>Enter answer to unlock next question</h2>
-    <p>Type the exact output for the example above (include the space).</p>
-    <input id="answer" type="text" placeholder>
+  <div class="card" id="unlock">
+    <h2>Enter answer to reveal Question 2</h2>
+    <p>Type the exact output for the example above (include the space):</p>
+    <input id="answer" type="text" placeholder="e.g.,543 m">
     <button id="check">Verify</button>
     <div id="msg" aria-live="polite"></div>
+  </div>
 
-    <div id="next" class="hidden" style="margin-top:1rem">
-      <a href="next.html">Next Question →</a>
-    </div>
+  <!-- Question 2 lives right here, initially hidden -->
+  <div id="q2" class="card hidden">
+    <h2>Question 2 — Replace with your next puzzle</h2>
+    <p>Write your second question text here, including its own input description and answer format, and it will appear automatically after the first answer is verified.</p>
   </div>
 
   <script>
-    // Show/hide helper
+    // Helper to show/hide a section
     const show = (el, visible) => el.classList.toggle('hidden', !visible);
 
-    const input = document.getElementById('answer');   // access input
-    const btn   = document.getElementById('check');    // access button
-    const msg   = document.getElementById('msg');      // status message
-    const next  = document.getElementById('next');     // next link
+    // Elements
+    const input = document.getElementById('answer');
+    const btn   = document.getElementById('check');
+    const msg   = document.getElementById('msg');
+    const q2    = document.getElementById('q2');
 
+    // If already solved earlier, auto-show Question 2 on load
+    if (localStorage.getItem('q1_passed') === 'true') {
+      show(q2, true);
+      msg.textContent = 'Already unlocked!';
+      msg.className = 'ok';
+      // Optional: scroll into view
+      // q2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Verify button
     btn.addEventListener('click', () => {
       const ok = input.value.trim().toLowerCase() === '900 m';
       if (ok) {
-        localStorage.setItem('q1_passed', 'true');
-        show(next, true);
-        msg.textContent = 'Correct! 900 m is actually the walking distance between our houses in delhi! Probably the shortest distance to have existed between all this long distance:)';
+        localStorage.setItem('q1_passed', 'true');  // remember success
+        show(q2, true);                              // reveal Question 2 now
+        msg.textContent = 'Correct! 900 m was also the walking distance between your house and mine in Delhi. Probably the shortest distance between the ever lasting long distance! Anyway, Question 2 is now visible.';
         msg.className = 'ok';
+        // Optional: q2.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
         msg.textContent = 'Try again (exactly: 900 m).';
         msg.className = 'err';
@@ -83,8 +97,4 @@
   </script>
 </body>
 </html>
-<script>
-  if (localStorage.getItem('q1_passed') !== 'true') {
-    window.location.href = './';
-  }
-</script>
+
