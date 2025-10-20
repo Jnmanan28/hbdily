@@ -17,7 +17,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Question 1 — Sum Without Smallest</title>
+  <title>Question 1 — Sum Without the Smallest</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
@@ -34,28 +34,22 @@
   <h1>Question 1 — Sum Without the Smallest</h1>
 
   <div class="card">
-    <p>Your task is to read a list of distances in meters, ignore exactly the smallest value, and output the sum of the remaining values with a space and the letter m appended (for meters) [Input and example are provided below].</p>
+    <p>Given N positive integers representing distances in meters, ignore exactly the smallest value and output the sum of the remaining values followed by a space and the letter m on one line.</p>
 
     <h3>Input</h3>
-    <p>First line: an integer N (2 ≤ N ≤ 10).<br>Second line: N positive integers (each 1–1000), representing distances in meters.</p>
+    <p>First line: an integer N (2 ≤ N ≤ 10).<br>Second line: N positive integers (each 1–1000).</p>
 
-    <h3>Example input (copy/paste all lines)</h3>
+    <h3>Example input (copy all lines exactly)</h3>
     <pre>4
 100 200 300 400</pre>
 
-    <h3>Expected output for the example</h3>
-    <pre>900 m</pre>
-
-    <h3>Notes</h3>
-    <ul>
-      <li>Sum every value except the single smallest one, then print the number followed by a space and m.</li>
-      <li>No extra punctuation or text is allowed; type exactly: 900 m.</li>
-    </ul>
+    <h3>Answer format</h3>
+    <p>Print the total as a number, then a space, then the character m.</p>
   </div>
 
   <div class="card">
     <h2>Enter answer to unlock next question</h2>
-    <p>Type the exact output (include the space):</p>
+    <p>Type the exact output for the example above (include the space).</p>
     <input id="answer" type="text" placeholder="e.g., 900 m">
     <button id="check">Verify</button>
     <div id="msg" aria-live="polite"></div>
@@ -66,15 +60,15 @@
   </div>
 
   <script>
-    // Helper to show/hide the next link
+    // Show/hide helper
     const show = (el, visible) => el.classList.toggle('hidden', !visible);
 
-    const input = document.getElementById('answer');     // Access input box
-    const btn   = document.getElementById('check');      // Access button
-    const msg   = document.getElementById('msg');        // Status message
-    const next  = document.getElementById('next');       // Next question link
+    const input = document.getElementById('answer');   // access input
+    const btn   = document.getElementById('check');    // access button
+    const msg   = document.getElementById('msg');      // status message
+    const next  = document.getElementById('next');     // next link
 
-    // Keep it unlocked across reloads
+    // Keep unlocked across reloads
     if (localStorage.getItem('q1_passed') === 'true') {
       show(next, true);
       msg.textContent = 'Already unlocked!';
@@ -84,9 +78,9 @@
     btn.addEventListener('click', () => {
       const ok = input.value.trim().toLowerCase() === '900 m';
       if (ok) {
-        localStorage.setItem('q1_passed', 'true');       // Remember success
-        show(next, true);                                 // Reveal link
-        msg.textContent = 'Correct! Link unlocked.';      // Friendly status
+        localStorage.setItem('q1_passed', 'true');
+        show(next, true);
+        msg.textContent = 'Correct! Link unlocked.';
         msg.className = 'ok';
       } else {
         msg.textContent = 'Try again (exactly: 900 m).';
