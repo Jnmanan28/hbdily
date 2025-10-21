@@ -15,60 +15,93 @@
   </style>
 </head>
 <body>
-  <h1>MJ turns 28</h1>
-  <p>Welcome! Since I was forbidden to give birthday gifts, and I wanted revenge - I have decided to test you and your skills. You might've made it to Google, but I'll only believe you are a capable software developer if you can solve these vvv hard questions.</p>
+  <h1>Happy Birthday, MJ 🎉</h1>
+  <p>Welcome! Since I was forbidden to give birthday gifts, and I wanted revenge - I have decided to test you and your skills. You might've made it to Google, but I'll only believe you are a capable software developer if you can solve these vvv hard questions</p>
 
+  <!-- Question 1 -->
   <div class="card">
-    <h2>Question 1 — Sum Without the Smallest</h2>
-    <p>Given N positive integers representing distances in meters, ignore exactly the smallest value and output the sum of the remaining values followed by a space and the letter m.</p>
+    <h2>Question 1 — Sum Without the Smallest</h2>
+    <p>Given N positive integers representing distances in meters, ignore exactly the smallest value and output the sum of the remaining values followed by a space and the letter m.</p>
     <h3>Input</h3>
     <pre>4
 100 200 300 400</pre>
-    <p>Print your output exactly (e.g. “900 m”).</p>
+    <p>Print your output exactly (e.g. “900 m”).</p>
   </div>
 
   <div class="card">
-    <h3>Enter answer to reveal Question 2</h3>
-    <input id="answer" placeholder="e.g. 900 m">
+    <h3>Enter answer to reveal Question 2</h3>
+    <input id="answer" placeholder="e.g. 900 m">
     <button id="check">Verify</button>
     <div id="msg"></div>
   </div>
 
+  <!-- Question 2 -->
   <div id="q2" class="card hidden">
-    <h2>Year 2 — The Secret Rickshaw Spot</h2>
-    <p>Every ride home from school follows the same web of roads.  
-       The nodes are stops; one of them, the <em>kiss spot</em>, lies on every shortest route between
-       <strong>School</strong> and <strong>Home</strong>. Find and type its name.</p>
+    <h2>Question 2 — The Last 20%</h2>
+    <p>
+      Every route home from school was a mini adventure — a web of familiar stops, giggles, and glances.  
+      Somewhere near the very end of that journey — roughly in the <strong>last 20%</strong> of the distance from <strong>School</strong> to <strong>Sanna_House</strong> — lies a spot that changed everything 💋.
+    </p>
+
+    <p>
+      Your task is to find the <strong>kissing spot</strong> — the coordinates of the point that lies around the last 20% of the shortest route between <strong>School</strong> and <strong>Sanna_House</strong>.
+    </p>
+
     <h3>Input</h3>
-    <pre>6 7
-School Park
-Park RickshawStand
-RickshawStand Market
-Market Home
-Park Market
-Home Café
-Café School
-School Home</pre>
-    <input id="ans2" placeholder="Type location...">
-    <button id="check2">Check</button>
+    <pre>
+10 9
+School 0 0
+Red_Light 2 1
+Bajju_House 4 2
+Gh9_Market 5 3
+GS_Convent 6 5
+Bosco_Park 7 6
+Lakeview_Apartment 8 6
+Gh14_GateNo1 9 6
+Mandir 10 6
+Sanna_House 12 6
+School Red_Light
+Red_Light Bajju_House
+Bajju_House Gh9_Market
+Gh9_Market GS_Convent
+GS_Convent Bosco_Park
+Bosco_Park Lakeview_Apartment
+Lakeview_Apartment Gh14_GateNo1
+Gh14_GateNo1 Mandir
+Mandir Sanna_House
+School Sanna_House
+    </pre>
+
+    <p>
+      Output the coordinates (x, y) of the point that lies near the <strong>last 20%</strong> of this route.  
+      (Hint: Think somewhere between <strong>Gh14_GateNo1</strong> and <strong>Mandir</strong>.)
+    </p>
+
+    <input id="ans2" placeholder="e.g. 9.5 6.0">
+    <button id="check2">Submit</button>
     <div id="msg2"></div>
+
     <div id="reveal2" class="card hidden">
-      <h3>Clue Unlocked ❤️</h3>
-      <p>You found it – that’s where the world blurred and our rickshaw slowed down.</p>
+      <h3>💋 Clue Unlocked</h3>
+      <p>
+        You found it — <strong>(9.5, 6.0)</strong> — the exact spot that lived in the <em>last 20%</em> of our walk home.  
+        <br><br>
+        Between <strong>Gh-14 Gate No 1</strong> and the <strong>Mandir</strong>, where time slowed down and so did our steps 💞
+      </p>
     </div>
   </div>
 
   <script>
-    // Helper functions
+    // Helper function
     const show = (el, v) => el.classList.toggle('hidden', !v);
 
-    // Question 1 elements
+    // Question 1 logic
     const input1 = document.getElementById('answer');
     const btn1 = document.getElementById('check');
     const msg1 = document.getElementById('msg');
     const q2 = document.getElementById('q2');
 
-    // Restore progress silently
+    // Restore progress
     if (localStorage.getItem('q1_passed') === 'true') { show(q2, true); }
 
     btn1.addEventListener('click', () => {
@@ -76,15 +109,15 @@ School Home</pre>
       if (ok) {
         localStorage.setItem('q1_passed','true');
         show(q2,true);
-        msg1.textContent = 'Correct!';
+        msg1.textContent = 'Correct! Question 2 unlocked 🎉';
         msg1.className = 'ok';
       } else {
-        msg1.textContent = 'Try again – exactly “900 m”.';
+        msg1.textContent = 'Try again – exactly “900 m”.';
         msg1.className = 'err';
       }
     });
 
-    // Question 2
+    // Question 2 logic
     const a2 = document.getElementById('ans2');
     const m2 = document.getElementById('msg2');
     const r2 = document.getElementById('reveal2');
@@ -92,14 +125,15 @@ School Home</pre>
     if (localStorage.getItem('q2_passed') === 'true') { show(r2, true); }
 
     document.getElementById('check2').addEventListener('click', () => {
-      const ok2 = a2.value.trim().toLowerCase() === 'rickshawstand';
+      const ans = a2.value.trim().replace(/\s+/g, ' ');
+      const ok2 = (ans === '9.5 6.0' || ans === '9.5 6');
       if (ok2) {
         localStorage.setItem('q2_passed','true');
         show(r2,true);
-        m2.textContent = 'That’s right!';
+        m2.textContent = 'That’s right ❤️';
         m2.className = 'ok';
       } else {
-        m2.textContent = 'Not quite – check your routes.';
+        m2.textContent = 'Almost there – you’re close to the last 20% 😉';
         m2.className = 'err';
       }
     });
