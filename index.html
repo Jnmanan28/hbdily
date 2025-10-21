@@ -56,10 +56,35 @@
   </div>
 
   <!-- Question 2 lives right here, initially hidden -->
-  <div id="q2" class="card hidden">
-    <h2>Question 2 — Replace with your next puzzle</h2>
-    <p>Write your second question text here, including its own input description and answer format, and it will appear automatically after the first answer is verified.</p>
+<div id="q2" class="card hidden">
+  <h2>Year 2 — The Secret Rickshaw Spot</h2>
+  <p>Every ride home from school follows the same web of roads. Each name below is a stop or landmark.  
+     One of these is the secret meeting point — the kiss spot — located on every shortest route between
+     <em>School</em> and <em>Home</em>.</p>
+
+  <h3>Input</h3>
+  <pre>6 7
+School Park
+Park RickshawStand
+RickshawStand Market
+Market Home
+Park Market
+Home Café
+Café School
+School Home</pre>
+
+  <p>Find the node that appears on all shortest paths from School to Home, and type its exact name below.</p>
+
+  <input id="ans2" placeholder="Type location...">
+  <button id="check2">Check</button>
+  <div id="msg2"></div>
+
+  <div id="reveal2" class="card hidden">
+    <h3>Clue Unlocked ❤️</h3>
+    <p>You found it! That’s the spot where we always slowed down — right where the sunlight hit your face.</p>
   </div>
+</div>
+
 
   <script>
     // Helper to show/hide a section
@@ -93,7 +118,31 @@
         msg.textContent = 'Try again (exactly: 900 m).';
         msg.className = 'err';
       }
-    });
+// Question 2 logic
+const show2 = (el, visible) => el.classList.toggle('hidden', !visible);
+const a2 = document.getElementById('ans2');
+const m2 = document.getElementById('msg2');
+const r2 = document.getElementById('reveal2');
+
+if (localStorage.getItem('q2_passed') === 'true') {
+  show2(r2, true);
+  m2.textContent = 'Already unlocked!';
+  m2.className = 'ok';
+}
+
+if (document.getElementById('check2')) {
+  document.getElementById('check2').addEventListener('click', () => {
+    const correct = a2.value.trim().toLowerCase() === 'rickshawstand';
+    if (correct) {
+      localStorage.setItem('q2_passed', 'true');
+      show2(r2, true);
+      m2.textContent = 'That’s right!';
+      m2.className = 'ok';
+    } else {
+      m2.textContent = 'Try again — check your routes!';
+      m2.className = 'err';
+    }
+  });
   </script>
 </body>
 </html>
