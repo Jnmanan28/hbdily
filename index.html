@@ -1,69 +1,46 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Happy Birthday MJ!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>body{font-family:system-ui,sans-serif;max-width:800px;margin:2rem auto;padding:0 1rem}</style>
-  </head>
-  <body>
-    <h1>MJ turns 28</h1>
-    <p>Welcome! Since I was forbidden to give birthday gifts, and I wanted revenge - I have decided to test you and your skills. You might;ve made it to Google, but I'll only believe you are a capable software dev if you can solve these vvv hard questions.</p>
-    <!-- If you made a Google Form, replace the next line with the Form's Embed code (iframe) -->
-    <!-- PLACEHOLDER_IFRAME -->
-  </body>
-</html>
-<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Question 1 — Sum Without the Smallest</title>
+  <title>Happy Birthday MJ!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 1rem; margin: 1rem 0; }
     .hidden { display: none; }
-    input[type="text"] { padding: .6rem; width: 70%; max-width: 420px; }
-    button { padding: .6rem 1rem; }
+    input { padding: .5rem; width: 70%; max-width: 420px; }
+    button { padding: .5rem 1rem; }
     .ok { color: #0a7a28; }
     .err { color: #b00020; }
-    code, pre { background: #f7f7f8; padding: .2rem .4rem; border-radius: 6px; }
   </style>
 </head>
 <body>
-  <h1>Question 1 — Sum Without the Smallest</h1>
+  <h1>MJ turns 28</h1>
+  <p>Welcome! Since I was forbidden to give birthday gifts, and I wanted revenge - I have decided to test you and your skills. You might've made it to Google, but I'll only believe you are a capable software developer if you can solve these vvv hard questions.</p>
 
   <div class="card">
-    <p>Given N positive integers representing distances in meters, ignore exactly the smallest value and output the sum of the remaining values followed by a space and the letter m on one line.</p>
-
+    <h2>Question 1 — Sum Without the Smallest</h2>
+    <p>Given N positive integers representing distances in meters, ignore exactly the smallest value and output the sum of the remaining values followed by a space and the letter m.</p>
     <h3>Input</h3>
-    <p>First line: an integer N (2 ≤ N ≤ 10).<br>Second line: N positive integers (each 1–1000).</p>
-
-    <h3>Example input (copy all lines exactly)</h3>
     <pre>4
 100 200 300 400</pre>
-
-    <h3>Answer format</h3>
-    <p>Print the total as a number, then a space, then the character m.</p>
+    <p>Print your output exactly (e.g. “900 m”).</p>
   </div>
 
-  <div class="card" id="unlock">
-    <h2>Enter answer to reveal Question 2</h2>
-    <p>Type the exact output for the example above (include the space):</p>
-    <input id="answer" type="text" placeholder="e.g., 900 m">
+  <div class="card">
+    <h3>Enter answer to reveal Question 2</h3>
+    <input id="answer" placeholder="e.g. 900 m">
     <button id="check">Verify</button>
-    <div id="msg" aria-live="polite"></div>
+    <div id="msg"></div>
   </div>
 
-  <!-- Question 2 lives right here, initially hidden -->
-<div id="q2" class="card hidden">
-  <h2>Year 2 — The Secret Rickshaw Spot</h2>
-  <p>Every ride home from school follows the same web of roads. Each name below is a stop or landmark.  
-     One of these is the secret meeting point — the kiss spot — located on every shortest route between
-     <em>School</em> and <em>Home</em>.</p>
-
-  <h3>Input</h3>
-  <pre>6 7
+  <div id="q2" class="card hidden">
+    <h2>Year 2 — The Secret Rickshaw Spot</h2>
+    <p>Every ride home from school follows the same web of roads.  
+       The nodes are stops; one of them, the <em>kiss spot</em>, lies on every shortest route between
+       <strong>School</strong> and <strong>Home</strong>. Find and type its name.</p>
+    <h3>Input</h3>
+    <pre>6 7
 School Park
 Park RickshawStand
 RickshawStand Market
@@ -72,79 +49,60 @@ Park Market
 Home Café
 Café School
 School Home</pre>
-
-  <p>Find the node that appears on all shortest paths from School to Home, and type its exact name below.</p>
-
-  <input id="ans2" placeholder="Type location...">
-  <button id="check2">Check</button>
-  <div id="msg2"></div>
-
-  <div id="reveal2" class="card hidden">
-    <h3>Clue Unlocked ❤️</h3>
-    <p>You found it! That’s the spot where we always slowed down — right where the sunlight hit your face.</p>
+    <input id="ans2" placeholder="Type location...">
+    <button id="check2">Check</button>
+    <div id="msg2"></div>
+    <div id="reveal2" class="card hidden">
+      <h3>Clue Unlocked ❤️</h3>
+      <p>You found it – that’s where the world blurred and our rickshaw slowed down.</p>
+    </div>
   </div>
-</div>
-
 
   <script>
-    // Helper to show/hide a section
-    const show = (el, visible) => el.classList.toggle('hidden', !visible);
+    // Helper functions
+    const show = (el, v) => el.classList.toggle('hidden', !v);
 
-    // Elements
-    const input = document.getElementById('answer');
-    const btn   = document.getElementById('check');
-    const msg   = document.getElementById('msg');
-    const q2    = document.getElementById('q2');
+    // Question 1 elements
+    const input1 = document.getElementById('answer');
+    const btn1 = document.getElementById('check');
+    const msg1 = document.getElementById('msg');
+    const q2 = document.getElementById('q2');
 
-    // If already solved earlier, auto-show Question 2 on load
-    if (localStorage.getItem('q1_passed') === 'true') {
-      show(q2, true);
-      msg.textContent = 'Already unlocked!';
-      msg.className = 'ok';
-      // Optional: scroll into view
-      // q2.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // Restore progress silently
+    if (localStorage.getItem('q1_passed') === 'true') { show(q2, true); }
 
-    // Verify button
-    btn.addEventListener('click', () => {
-      const ok = input.value.trim().toLowerCase() === '900 m';
+    btn1.addEventListener('click', () => {
+      const ok = input1.value.trim().toLowerCase() === '900 m';
       if (ok) {
-        localStorage.setItem('q1_passed', 'true');  // remember success
-        show(q2, true);                              // reveal Question 2 now
-        msg.textContent = 'Correct! Question 2 is now visible.';
-        msg.className = 'ok';
-        // Optional: q2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        localStorage.setItem('q1_passed','true');
+        show(q2,true);
+        msg1.textContent = 'Correct!';
+        msg1.className = 'ok';
       } else {
-        msg.textContent = 'Try again (exactly: 900 m).';
-        msg.className = 'err';
+        msg1.textContent = 'Try again – exactly “900 m”.';
+        msg1.className = 'err';
       }
-// Question 2 logic
-const show2 = (el, visible) => el.classList.toggle('hidden', !visible);
-const a2 = document.getElementById('ans2');
-const m2 = document.getElementById('msg2');
-const r2 = document.getElementById('reveal2');
+    });
 
-if (localStorage.getItem('q2_passed') === 'true') {
-  show2(r2, true);
-  m2.textContent = 'Already unlocked!';
-  m2.className = 'ok';
-}
+    // Question 2
+    const a2 = document.getElementById('ans2');
+    const m2 = document.getElementById('msg2');
+    const r2 = document.getElementById('reveal2');
 
-if (document.getElementById('check2')) {
-  document.getElementById('check2').addEventListener('click', () => {
-    const correct = a2.value.trim().toLowerCase() === 'rickshawstand';
-    if (correct) {
-      localStorage.setItem('q2_passed', 'true');
-      show2(r2, true);
-      m2.textContent = 'That’s right!';
-      m2.className = 'ok';
-    } else {
-      m2.textContent = 'Try again — check your routes!';
-      m2.className = 'err';
-    }
-  });
+    if (localStorage.getItem('q2_passed') === 'true') { show(r2, true); }
+
+    document.getElementById('check2').addEventListener('click', () => {
+      const ok2 = a2.value.trim().toLowerCase() === 'rickshawstand';
+      if (ok2) {
+        localStorage.setItem('q2_passed','true');
+        show(r2,true);
+        m2.textContent = 'That’s right!';
+        m2.className = 'ok';
+      } else {
+        m2.textContent = 'Not quite – check your routes.';
+        m2.className = 'err';
+      }
+    });
   </script>
 </body>
 </html>
-
-
