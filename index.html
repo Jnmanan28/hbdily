@@ -2,175 +2,404 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Happy Birthday MJ </title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Our Journey Across Miles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body{font-family:system-ui,sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem;}
-    .card{border:1px solid #ddd;border-radius:10px;padding:1.5rem;margin:1.5rem 0;}
-    .hidden{display:none;}
-    input{padding:.6rem;width:70%;max-width:400px;}
-    button{padding:.6rem 1rem;margin-left:.5rem;}
-    .ok{color:#0a7a28;font-weight:600;}
-    .err{color:#c00;}
-    pre{background:#f5f5f5;padding:1rem;border-radius:6px;overflow-x:auto;}
+    body {
+      font-family: 'Georgia', serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .intro {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .card {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .hidden { display: none; }
+    .map-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      display: block;
+      border: 1px solid #ddd;
+    }
+    .answer-section {
+      margin-top: 1.5rem;
+    }
+    .answer-row {
+      margin: 0.8rem 0;
+    }
+    label {
+      display: inline-block;
+      width: 120px;
+      font-weight: 600;
+      color: #555;
+    }
+    input[type="text"] {
+      padding: 0.6rem;
+      width: 60%;
+      max-width: 350px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+    button {
+      padding: 0.7rem 1.5rem;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .msg {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    .ok { color: #27ae60; }
+    .err { color: #e74c3c; }
+    .final-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .final-card h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
-  <h1>🎂 MJ Turns 28 — The Hard Mode Challenge</h1>
-  <p>Since you banned birthday gifts, you'll earn them by solving 10 <strong>hard</strong> LeetCode-level problems themed around our decade together. Good luck! ❤️</p>
 
-  <!-- Q1 -->
+  <h1>🗺️ Our Journey Across Miles</h1>
+  <p class="intro">
+    Twelve maps. Twenty-four answers. Every route tells a story of the distances we traveled—across towns, cities, and countries—just to see each other's faces. Guess both the start and end points of each journey.
+  </p>
+
+  <!-- Question 1 -->
   <div class="card">
-    <h2>Year 1 — Longest Valid Memory Sequence</h2>
-    <p>Our first chat had nested replies: <code>()</code>, <code>[]</code>, <code>{}</code>. Given a string of mixed brackets and chars, find the <strong>length</strong> of the longest contiguous <strong>valid parentheses substring</strong>.</p>
-    <h3>Input</h3>
-    <pre>(()</pre>
-    <p><strong>Answer:</strong> Type the integer length.</p>
-    <input id="a1" placeholder="e.g. 2">
-    <button id="c1">Check</button>
-    <div id="m1"></div>
+    <h2>Map 1</h2>
+    <img src="1.png" alt="Map 1" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q1a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q1b" placeholder="Enter location">
+      </div>
+      <button id="c1">Submit</button>
+      <div class="msg" id="m1"></div>
+    </div>
   </div>
 
+  <!-- Question 2 -->
   <div id="q2" class="card hidden">
-    <h2>Year 2 — Critical Connection (Bridge)</h2>
-    <p>Our rickshaw route is a graph. Find the <strong>critical edge</strong> (bridge) connecting School to Home — if it's removed, they're disconnected. That's our kiss spot.</p>
-    <h3>Input (adjacency list)</h3>
-    <pre>5 5
-0 1
-1 2
-2 3
-3 4
-1 3</pre>
-    <p>Nodes: 0=School, 1=Park, 2=Market, 3=RickshawStand, 4=Home. <strong>Output:</strong> Edge as "u-v" (e.g. "1-2").</p>
-    <input id="a2" placeholder="e.g. 0-1">
-    <button id="c2">Check</button>
-    <div id="m2"></div>
+    <h2>Map 2</h2>
+    <img src="2.png" alt="Map 2" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q2a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q2b" placeholder="Enter location">
+      </div>
+      <button id="c2">Submit</button>
+      <div class="msg" id="m2"></div>
+    </div>
   </div>
 
+  <!-- Question 3 -->
   <div id="q3" class="card hidden">
-    <h2>Year 3 — Minimum Cost to Merge Boxes</h2>
-    <p>Moving day: merge N boxes into one. Merging two adjacent costs their sum. Find <strong>minimum total cost</strong>.</p>
-    <h3>Input</h3>
-    <pre>[10, 20, 30]</pre>
-    <p><strong>Output:</strong> Minimum cost integer.</p>
-    <input id="a3" placeholder="e.g. 90">
-    <button id="c3">Check</button>
-    <div id="m3"></div>
+    <h2>Map 3</h2>
+    <img src="3.png" alt="Map 3" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q3a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q3b" placeholder="Enter location">
+      </div>
+      <button id="c3">Submit</button>
+      <div class="msg" id="m3"></div>
+    </div>
   </div>
 
+  <!-- Question 4 -->
   <div id="q4" class="card hidden">
-    <h2>Year 4 — Streaming Playlist Median</h2>
-    <p>Songs arrive one by one (in seconds). After each, return the <strong>median duration</strong> so far. For input <code>[5, 15, 1, 3]</code>, after all: median is <strong>4.0</strong>.</p>
-    <h3>Input</h3>
-    <pre>[5, 15, 1, 3]</pre>
-    <p><strong>Output:</strong> Final median (use decimal if needed).</p>
-    <input id="a4" placeholder="e.g. 4.0">
-    <button id="c4">Check</button>
-    <div id="m4"></div>
+    <h2>Map 4</h2>
+    <img src="4.png" alt="Map 4" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q4a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q4b" placeholder="Enter location">
+      </div>
+      <button id="c4">Submit</button>
+      <div class="msg" id="m4"></div>
+    </div>
   </div>
 
+  <!-- Question 5 -->
   <div id="q5" class="card hidden">
-    <h2>Year 5 — Word Ladder (HOME → PARIS)</h2>
-    <p>Transform "HOME" into "PARIS" changing one letter at a time. Each intermediate must be a valid word. Given dictionary <code>["HOME","HAME","PAME","PARAS","PARIS"]</code>, find <strong>shortest path length</strong>.</p>
-    <h3>Input</h3>
-    <pre>start = HOME, end = PARIS, dict = [HOME, HAME, PAME, PARAS, PARIS]</pre>
-    <p><strong>Output:</strong> Shortest transformation length (integer).</p>
-    <input id="a5" placeholder="e.g. 5">
-    <button id="c5">Check</button>
-    <div id="m5"></div>
+    <h2>Map 5</h2>
+    <img src="5.png" alt="Map 5" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q5a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q5b" placeholder="Enter location">
+      </div>
+      <button id="c5">Submit</button>
+      <div class="msg" id="m5"></div>
+    </div>
   </div>
 
+  <!-- Question 6 -->
   <div id="q6" class="card hidden">
-    <h2>Year 6 — Max Memory Score with Dependencies</h2>
-    <p>Dinner intervals with values + dependencies. Non-overlapping max score for <code>[[1,3,50],[2,4,10],[3,5,40],[4,6,70]]</code> with no dependencies.</p>
-    <h3>Input</h3>
-    <pre>[[1,3,50],[2,4,10],[3,5,40],[4,6,70]]</pre>
-    <p><strong>Output:</strong> Max score (integer).</p>
-    <input id="a6" placeholder="e.g. 120">
-    <button id="c6">Check</button>
-    <div id="m6"></div>
+    <h2>Map 6</h2>
+    <img src="6.png" alt="Map 6" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q6a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q6b" placeholder="Enter location">
+      </div>
+      <button id="c6">Submit</button>
+      <div class="msg" id="m6"></div>
+    </div>
   </div>
 
+  <!-- Question 7 -->
   <div id="q7" class="card hidden">
-    <h2>Year 7 — Minimum Cash Flow Settlements</h2>
-    <p>Given transactions <code>[[0,1,10],[1,2,5],[2,0,3]]</code>, find <strong>minimum number of settlements</strong> so everyone is square.</p>
-    <h3>Input</h3>
-    <pre>[[0,1,10],[1,2,5],[2,0,3]]</pre>
-    <p><strong>Output:</strong> Minimum transfers (integer).</p>
-    <input id="a7" placeholder="e.g. 2">
-    <button id="c7">Check</button>
-    <div id="m7"></div>
+    <h2>Map 7</h2>
+    <img src="7.png" alt="Map 7" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q7a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q7b" placeholder="Enter location">
+      </div>
+      <button id="c7">Submit</button>
+      <div class="msg" id="m7"></div>
+    </div>
   </div>
 
+  <!-- Question 8 -->
   <div id="q8" class="card hidden">
-    <h2>Year 8 — Readers-Writers Fairness</h2>
-    <p>Design a lock preventing starvation. For request sequence <code>RWRRWRW</code>, output a <strong>valid interleaving</strong> where no R or W starves.</p>
-    <h3>Input</h3>
-    <pre>RWRRWRW</pre>
-    <p><strong>Output:</strong> One valid ordering (e.g. "RWRWRRW").</p>
-    <input id="a8" placeholder="e.g. RWRWRRW">
-    <button id="c8">Check</button>
-    <div id="m8"></div>
+    <h2>Map 8</h2>
+    <img src="8.png" alt="Map 8" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q8a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q8b" placeholder="Enter location">
+      </div>
+      <button id="c8">Submit</button>
+      <div class="msg" id="m8"></div>
+    </div>
   </div>
 
+  <!-- Question 9 -->
   <div id="q9" class="card hidden">
-    <h2>Year 9 — CPU Scheduling with Deadlines</h2>
-    <p>Processes <code>[[0,3,5],[1,2,3],[2,1,2]]</code> format <code>[arrival, burst, deadline]</code>. Find if EDF schedule exists; output "YES" or "NO".</p>
-    <h3>Input</h3>
-    <pre>[[0,3,5],[1,2,3],[2,1,2]]</pre>
-    <p><strong>Output:</strong> YES or NO.</p>
-    <input id="a9" placeholder="e.g. YES">
-    <button id="c9">Check</button>
-    <div id="m9"></div>
+    <h2>Map 9</h2>
+    <img src="9.png" alt="Map 9" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q9a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q9b" placeholder="Enter location">
+      </div>
+      <button id="c9">Submit</button>
+      <div class="msg" id="m9"></div>
+    </div>
   </div>
 
+  <!-- Question 10 -->
   <div id="q10" class="card hidden">
-    <h2>Year 10 — Treasure Hunt (Keys & Doors)</h2>
-    <p>Grid with keys (lowercase) and doors (uppercase). From START to GOAL collecting all keys, find <strong>shortest path</strong>. For 3x3 grid <code>['S.a','.#.','b.E']</code> with 2 keys, answer is path length.</p>
-    <h3>Input</h3>
-    <pre>['S.a','.#.','b.E']</pre>
-    <p><strong>Output:</strong> Shortest path length (integer).</p>
-    <input id="a10" placeholder="e.g. 8">
-    <button id="c10">Check</button>
-    <div id="m10"></div>
+    <h2>Map 10</h2>
+    <img src="10.png" alt="Map 10" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q10a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q10b" placeholder="Enter location">
+      </div>
+      <button id="c10">Submit</button>
+      <div class="msg" id="m10"></div>
+    </div>
   </div>
 
-  <div id="final" class="card hidden">
-    <h2>🎉 You Did It!</h2>
-    <p>Ten years. Ten challenges. One incredible journey. Happy Birthday, love. Now let's celebrate properly ❤️</p>
+  <!-- Question 11 -->
+  <div id="q11" class="card hidden">
+    <h2>Map 11</h2>
+    <img src="11.png" alt="Map 11" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q11a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q11b" placeholder="Enter location">
+      </div>
+      <button id="c11">Submit</button>
+      <div class="msg" id="m11"></div>
+    </div>
+  </div>
+
+  <!-- Question 12 -->
+  <div id="q12" class="card hidden">
+    <h2>Map 12</h2>
+    <img src="12.png" alt="Map 12" class="map-img">
+    <div class="answer-section">
+      <div class="answer-row">
+        <label>Start Point:</label>
+        <input type="text" id="q12a" placeholder="Enter location">
+      </div>
+      <div class="answer-row">
+        <label>End Point:</label>
+        <input type="text" id="q12b" placeholder="Enter location">
+      </div>
+      <button id="c12">Submit</button>
+      <div class="msg" id="m12"></div>
+    </div>
+  </div>
+
+  <!-- Final Message -->
+  <div id="final" class="card final-card hidden">
+    <h2>❤️ Every Mile Was Worth It</h2>
+    <p style="font-size:1.2rem;line-height:1.8;">
+      Twelve journeys. Hundreds of miles. Countless hours apart—but every single trip brought us closer. 
+      From small towns to big cities, across borders and time zones, we chose each other, over and over again. 
+      Here's to the roads we've traveled and all the ones still ahead. Happy Birthday, my love.
+    </p>
   </div>
 
   <script>
+    // REPLACE THESE WITH YOUR ACTUAL ANSWERS (lowercase for case-insensitive matching)
     const answers = {
-      a1:'2', a2:'0-1', a3:'90', a4:'4.0', a5:'5',
-      a6:'120', a7:'2', a8:'rwrwrrw', a9:'yes', a10:'8'
+      '1a': 'Delhi',
+      '1b': 'Bangalore',
+      '2a': 'Delhi',
+      '2b': 'Bombay',
+      '3a': 'Roorkee',
+      '3b': 'Bombay',
+      '4a': 'ANSWER_4A_HERE',
+      '4b': 'ANSWER_4B_HERE',
+      '5a': 'ANSWER_5A_HERE',
+      '5b': 'ANSWER_5B_HERE',
+      '6a': 'ANSWER_6A_HERE',
+      '6b': 'ANSWER_6B_HERE',
+      '7a': 'ANSWER_7A_HERE',
+      '7b': 'ANSWER_7B_HERE',
+      '8a': 'ANSWER_8A_HERE',
+      '8b': 'ANSWER_8B_HERE',
+      '9a': 'ANSWER_9A_HERE',
+      '9b': 'ANSWER_9B_HERE',
+      '10a': 'ANSWER_10A_HERE',
+      '10b': 'ANSWER_10B_HERE',
+      '11a': 'ANSWER_11A_HERE',
+      '11b': 'ANSWER_11B_HERE',
+      '12a': 'ANSWER_12A_HERE',
+      '12b': 'ANSWER_12B_HERE'
     };
-    const show = (el,v) => el.classList.toggle('hidden',!v);
+
+    const show = (el, visible) => el.classList.toggle('hidden', !visible);
+
     const check = (n) => {
-      const inp = document.getElementById(`a${n}`);
+      const inputA = document.getElementById(`q${n}a`);
+      const inputB = document.getElementById(`q${n}b`);
       const msg = document.getElementById(`m${n}`);
-      const nxt = document.getElementById(n===10?'final':`q${n+1}`);
-      const ok = inp.value.trim().toLowerCase() === answers[`a${n}`];
-      if(ok){
-        localStorage.setItem(`q${n}`,'1');
-        show(nxt,true);
-        msg.textContent='Correct!';
-        msg.className='ok';
-      }else{
-        msg.textContent='Try again.';
-        msg.className='err';
+      const next = document.getElementById(n === 12 ? 'final' : `q${n+1}`);
+
+      const ansA = inputA.value.trim().toLowerCase();
+      const ansB = inputB.value.trim().toLowerCase();
+      const correctA = answers[`${n}a`].toLowerCase();
+      const correctB = answers[`${n}b`].toLowerCase();
+
+      if (ansA === correctA && ansB === correctB) {
+        localStorage.setItem(`map${n}`, '1');
+        show(next, true);
+        msg.textContent = 'Correct! Next map unlocked.';
+        msg.className = 'msg ok';
+        next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        msg.textContent = 'Not quite. Check both locations carefully.';
+        msg.className = 'msg err';
       }
     };
-    for(let i=1;i<=10;i++){
-      if(localStorage.getItem(`q${i}`)==='1') show(document.getElementById(i===10?'final':`q${i+1}`),true);
+
+    // Restore progress on page load
+    for (let i = 1; i <= 12; i++) {
+      if (localStorage.getItem(`map${i}`) === '1') {
+        const next = document.getElementById(i === 12 ? 'final' : `q${i+1}`);
+        if (next) show(next, true);
+      }
       const btn = document.getElementById(`c${i}`);
-      if(btn) btn.addEventListener('click',()=>check(i));
+      if (btn) btn.addEventListener('click', () => check(i));
     }
   </script>
+
 </body>
 </html>
 
-    });
   </script>
 </body>
 </html>
