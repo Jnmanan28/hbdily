@@ -2,140 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Happy Birthday MJ!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday MJ </title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-    .card { border: 1px solid #ddd; border-radius: 10px; padding: 1rem; margin: 1rem 0; }
-    .hidden { display: none; }
-    input { padding: .5rem; width: 70%; max-width: 420px; }
-    button { padding: .5rem 1rem; }
-    .ok { color: #0a7a28; }
-    .err { color: #b00020; }
+    body{font-family:system-ui,sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem;}
+    .card{border:1px solid #ddd;border-radius:10px;padding:1.5rem;margin:1.5rem 0;}
+    .hidden{display:none;}
+    input{padding:.6rem;width:70%;max-width:400px;}
+    button{padding:.6rem 1rem;margin-left:.5rem;}
+    .ok{color:#0a7a28;font-weight:600;}
+    .err{color:#c00;}
+    pre{background:#f5f5f5;padding:1rem;border-radius:6px;overflow-x:auto;}
   </style>
 </head>
 <body>
-  <h1>Happy Birthday, MJ 🎉</h1>
-  <p>Welcome! Since I was forbidden to give birthday gifts, and I wanted revenge - I have decided to test you and your skills. You might've made it to Google, but I'll only believe you are a capable software developer if you can solve these vvv hard questions</p>
+  <h1>🎂 MJ Turns 28 — The Hard Mode Challenge</h1>
+  <p>Since you banned birthday gifts, you'll earn them by solving 10 <strong>hard</strong> LeetCode-level problems themed around our decade together. Good luck! ❤️</p>
 
-  <!-- Question 1 -->
+  <!-- Q1 -->
   <div class="card">
-    <h2>Question 1 — Sum Without the Smallest</h2>
-    <p>Given N positive integers representing distances in meters, ignore exactly the smallest value and output the sum of the remaining values followed by a space and the letter m.</p>
+    <h2>Year 1 — Longest Valid Memory Sequence</h2>
+    <p>Our first chat had nested replies: <code>()</code>, <code>[]</code>, <code>{}</code>. Given a string of mixed brackets and chars, find the <strong>length</strong> of the longest contiguous <strong>valid parentheses substring</strong>.</p>
     <h3>Input</h3>
-    <pre>4
-100 200 300 400</pre>
-    <p>Print your output exactly (e.g. “900 m”).</p>
+    <pre>(()</pre>
+    <p><strong>Answer:</strong> Type the integer length.</p>
+    <input id="a1" placeholder="e.g. 2">
+    <button id="c1">Check</button>
+    <div id="m1"></div>
   </div>
 
-  <div class="card">
-    <h3>Enter answer to reveal Question 2</h3>
-    <input id="answer" placeholder="e.g. 900 m">
-    <button id="check">Verify</button>
-    <div id="msg"></div>
-  </div>
-
-  <!-- Question 2 -->
   <div id="q2" class="card hidden">
-    <h2>Question 2 — The Last 20%</h2>
-    <p>
-      Every route home from school was a mini adventure — a web of familiar stops, giggles, and glances.  
-      Somewhere near the very end of that journey — roughly in the <strong>last 20%</strong> of the distance from <strong>School</strong> to <strong>Sanna_House</strong> — lies a spot that changed everything 💋.
-    </p>
+    <h2>Year 2 — Critical Connection (Bridge)</h2>
+    <p>Our rickshaw route is a graph. Find the <strong>critical edge</strong> (bridge) connecting School to Home — if it's removed, they're disconnected. That's our kiss spot.</p>
+    <h3>Input (adjacency list)</h3>
+    <pre>5 5
+0 1
+1 2
+2 3
+3 4
+1 3</pre>
+    <p>Nodes: 0=School, 1=Park, 2=Market, 3=RickshawStand, 4=Home. <strong>Output:</strong> Edge as "u-v" (e.g. "1-2").</p>
+    <input id="a2" placeholder="e.g. 0-1">
+    <button id="c2">Check</button>
+    <div id="m2"></div>
+  </div>
 
-    <p>
-      Your task is to find the <strong>kissing spot</strong> — the coordinates of the point that lies around the last 20% of the shortest route between <strong>School</strong> and <strong>Sanna_House</strong>.
-    </p>
-
+  <div id="q3" class="card hidden">
+    <h2>Year 3 — Minimum Cost to Merge Boxes</h2>
+    <p>Moving day: merge N boxes into one. Merging two adjacent costs their sum. Find <strong>minimum total cost</strong>.</p>
     <h3>Input</h3>
-    <pre>
-10 9
-School 0 0
-Red_Light 2 1
-Bajju_House 4 2
-Gh9_Market 5 3
-GS_Convent 6 5
-Bosco_Park 7 6
-Lakeview_Apartment 8 6
-Gh14_GateNo1 9 6
-Mandir 10 6
-Sanna_House 12 6
-School Red_Light
-Red_Light Bajju_House
-Bajju_House Gh9_Market
-Gh9_Market GS_Convent
-GS_Convent Bosco_Park
-Bosco_Park Lakeview_Apartment
-Lakeview_Apartment Gh14_GateNo1
-Gh14_GateNo1 Mandir
-Mandir Sanna_House
-School Sanna_House
-    </pre>
+    <pre>[10, 20, 30]</pre>
+    <p><strong>Output:</strong> Minimum cost integer.</p>
+    <input id="a3" placeholder="e.g. 90">
+    <button id="c3">Check</button>
+    <div id="m3"></div>
+  </div>
 
-    <p>
-      Output the coordinates (x, y) of the point that lies near the <strong>last 20%</strong> of this route.  
-      (Hint: Think somewhere between <strong>Gh14_GateNo1</strong> and <strong>Mandir</strong>.)
-    </p>
+  <div id="q4" class="card hidden">
+    <h2>Year 4 — Streaming Playlist Median</h2>
+    <p>Songs arrive one by one (in seconds). After each, return the <strong>median duration</strong> so far. For input <code>[5, 15, 1, 3]</code>, after all: median is <strong>4.0</strong>.</p>
+    <h3>Input</h3>
+    <pre>[5, 15, 1, 3]</pre>
+    <p><strong>Output:</strong> Final median (use decimal if needed).</p>
+    <input id="a4" placeholder="e.g. 4.0">
+    <button id="c4">Check</button>
+    <div id="m4"></div>
+  </div>
 
-    <input id="ans2" placeholder="e.g. 9.5 6.0">
-    <button id="check2">Submit</button>
-    <div id="msg2"></div>
+  <div id="q5" class="card hidden">
+    <h2>Year 5 — Word Ladder (HOME → PARIS)</h2>
+    <p>Transform "HOME" into "PARIS" changing one letter at a time. Each intermediate must be a valid word. Given dictionary <code>["HOME","HAME","PAME","PARAS","PARIS"]</code>, find <strong>shortest path length</strong>.</p>
+    <h3>Input</h3>
+    <pre>start = HOME, end = PARIS, dict = [HOME, HAME, PAME, PARAS, PARIS]</pre>
+    <p><strong>Output:</strong> Shortest transformation length (integer).</p>
+    <input id="a5" placeholder="e.g. 5">
+    <button id="c5">Check</button>
+    <div id="m5"></div>
+  </div>
 
-    <div id="reveal2" class="card hidden">
-      <h3>💋 Clue Unlocked</h3>
-      <p>
-        You found it — <strong>(9.5, 6.0)</strong> — the exact spot that lived in the <em>last 20%</em> of our walk home.  
-        <br><br>
-        Between <strong>Gh-14 Gate No 1</strong> and the <strong>Mandir</strong>, where time slowed down and so did our steps 💞
-      </p>
-    </div>
+  <div id="q6" class="card hidden">
+    <h2>Year 6 — Max Memory Score with Dependencies</h2>
+    <p>Dinner intervals with values + dependencies. Non-overlapping max score for <code>[[1,3,50],[2,4,10],[3,5,40],[4,6,70]]</code> with no dependencies.</p>
+    <h3>Input</h3>
+    <pre>[[1,3,50],[2,4,10],[3,5,40],[4,6,70]]</pre>
+    <p><strong>Output:</strong> Max score (integer).</p>
+    <input id="a6" placeholder="e.g. 120">
+    <button id="c6">Check</button>
+    <div id="m6"></div>
+  </div>
+
+  <div id="q7" class="card hidden">
+    <h2>Year 7 — Minimum Cash Flow Settlements</h2>
+    <p>Given transactions <code>[[0,1,10],[1,2,5],[2,0,3]]</code>, find <strong>minimum number of settlements</strong> so everyone is square.</p>
+    <h3>Input</h3>
+    <pre>[[0,1,10],[1,2,5],[2,0,3]]</pre>
+    <p><strong>Output:</strong> Minimum transfers (integer).</p>
+    <input id="a7" placeholder="e.g. 2">
+    <button id="c7">Check</button>
+    <div id="m7"></div>
+  </div>
+
+  <div id="q8" class="card hidden">
+    <h2>Year 8 — Readers-Writers Fairness</h2>
+    <p>Design a lock preventing starvation. For request sequence <code>RWRRWRW</code>, output a <strong>valid interleaving</strong> where no R or W starves.</p>
+    <h3>Input</h3>
+    <pre>RWRRWRW</pre>
+    <p><strong>Output:</strong> One valid ordering (e.g. "RWRWRRW").</p>
+    <input id="a8" placeholder="e.g. RWRWRRW">
+    <button id="c8">Check</button>
+    <div id="m8"></div>
+  </div>
+
+  <div id="q9" class="card hidden">
+    <h2>Year 9 — CPU Scheduling with Deadlines</h2>
+    <p>Processes <code>[[0,3,5],[1,2,3],[2,1,2]]</code> format <code>[arrival, burst, deadline]</code>. Find if EDF schedule exists; output "YES" or "NO".</p>
+    <h3>Input</h3>
+    <pre>[[0,3,5],[1,2,3],[2,1,2]]</pre>
+    <p><strong>Output:</strong> YES or NO.</p>
+    <input id="a9" placeholder="e.g. YES">
+    <button id="c9">Check</button>
+    <div id="m9"></div>
+  </div>
+
+  <div id="q10" class="card hidden">
+    <h2>Year 10 — Treasure Hunt (Keys & Doors)</h2>
+    <p>Grid with keys (lowercase) and doors (uppercase). From START to GOAL collecting all keys, find <strong>shortest path</strong>. For 3x3 grid <code>['S.a','.#.','b.E']</code> with 2 keys, answer is path length.</p>
+    <h3>Input</h3>
+    <pre>['S.a','.#.','b.E']</pre>
+    <p><strong>Output:</strong> Shortest path length (integer).</p>
+    <input id="a10" placeholder="e.g. 8">
+    <button id="c10">Check</button>
+    <div id="m10"></div>
+  </div>
+
+  <div id="final" class="card hidden">
+    <h2>🎉 You Did It!</h2>
+    <p>Ten years. Ten challenges. One incredible journey. Happy Birthday, love. Now let's celebrate properly ❤️</p>
   </div>
 
   <script>
-    // Helper function
-    const show = (el, v) => el.classList.toggle('hidden', !v);
-
-    // Question 1 logic
-    const input1 = document.getElementById('answer');
-    const btn1 = document.getElementById('check');
-    const msg1 = document.getElementById('msg');
-    const q2 = document.getElementById('q2');
-
-    // Restore progress
-    if (localStorage.getItem('q1_passed') === 'true') { show(q2, true); }
-
-    btn1.addEventListener('click', () => {
-      const ok = input1.value.trim().toLowerCase() === '900 m';
-      if (ok) {
-        localStorage.setItem('q1_passed','true');
-        show(q2,true);
-        msg1.textContent = 'Correct! Question 2 unlocked 🎉';
-        msg1.className = 'ok';
-      } else {
-        msg1.textContent = 'Try again – exactly “900 m”.';
-        msg1.className = 'err';
+    const answers = {
+      a1:'2', a2:'0-1', a3:'90', a4:'4.0', a5:'5',
+      a6:'120', a7:'2', a8:'rwrwrrw', a9:'yes', a10:'8'
+    };
+    const show = (el,v) => el.classList.toggle('hidden',!v);
+    const check = (n) => {
+      const inp = document.getElementById(`a${n}`);
+      const msg = document.getElementById(`m${n}`);
+      const nxt = document.getElementById(n===10?'final':`q${n+1}`);
+      const ok = inp.value.trim().toLowerCase() === answers[`a${n}`];
+      if(ok){
+        localStorage.setItem(`q${n}`,'1');
+        show(nxt,true);
+        msg.textContent='Correct!';
+        msg.className='ok';
+      }else{
+        msg.textContent='Try again.';
+        msg.className='err';
       }
-    });
+    };
+    for(let i=1;i<=10;i++){
+      if(localStorage.getItem(`q${i}`)==='1') show(document.getElementById(i===10?'final':`q${i+1}`),true);
+      const btn = document.getElementById(`c${i}`);
+      if(btn) btn.addEventListener('click',()=>check(i));
+    }
+  </script>
+</body>
+</html>
 
-    // Question 2 logic
-    const a2 = document.getElementById('ans2');
-    const m2 = document.getElementById('msg2');
-    const r2 = document.getElementById('reveal2');
-
-    if (localStorage.getItem('q2_passed') === 'true') { show(r2, true); }
-
-    document.getElementById('check2').addEventListener('click', () => {
-      const ans = a2.value.trim().replace(/\s+/g, ' ');
-      const ok2 = (ans === '9.5 6.0' || ans === '9.5 6');
-      if (ok2) {
-        localStorage.setItem('q2_passed','true');
-        show(r2,true);
-        m2.textContent = 'That’s right ❤️';
-        m2.className = 'ok';
-      } else {
-        m2.textContent = 'Almost there – you’re close to the last 20% 😉';
-        m2.className = 'err';
-      }
     });
   </script>
 </body>
